@@ -17,6 +17,6 @@ module.exports = function(app){
     app.post('/answers', Answers.create);
 
     app.all('*', (req, res, next) => {
-        res.sendFile(path.resolve('./public/dist/index.html'));
+        res.sendFile(path.resolve('./public/src/app.html'));
     })
 }

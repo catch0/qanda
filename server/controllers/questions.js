@@ -20,7 +20,7 @@ class QuestionsController {
           })
       }
       create(req, res){
-          Question.create(req.body, (err, message) => {
+          Question.create(req.body, (err, question) => {
               if(err){ return res.json(err) }
               User.findByIdAndUpdate(req.body.user, { $push: { questions: question._id } }, { new: true }, (err, user) => {
                   if(err){ return res.json(err) }

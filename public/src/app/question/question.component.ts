@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
 import { QuestionService } from '../question.service';
 
 @Component({
-  selector: 'app-message-board',
+  selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css']
 })
@@ -11,12 +11,15 @@ export class QuestionComponent implements OnInit {
   currentUser = { _id: '' };
   newQuestion = { user: '' };
   questions:any[] = [];
-
+  question: '';
+  @Input() Quesiton;
+  user= {name: ''};
   constructor(private _userService:UserService, private _questionService:QuestionService) { }
 
   ngOnInit() {
     this.setCurrentUser();
     this.getQuestions();
+    this.createQuestion();
   }
 
   getQuestions(){
@@ -28,11 +31,11 @@ export class QuestionComponent implements OnInit {
   createQuestion(){
     this.newQuestion.user = this.currentUser._id;
     return this._questionService.create(this.newQuestion)
-    .then(message => {
-      if(message.errors){
+    .then(question => {
+      if(question.errors){
         //display error messages
       } else {
-        console.log('new msg: ', message);
+        console.log('new msg: ', question);
         this.getQuestions();
       }
     })

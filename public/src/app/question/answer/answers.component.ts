@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AnswerComponent implements OnInit {
   @Input() answer;
+  @Input() question;
   constructor() { }
 
   ngOnInit() {

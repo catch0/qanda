@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {QuestionComponent} from './question/question.component';
+
 
 @Component({
   selector: 'app-root',

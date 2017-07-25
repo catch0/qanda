@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
         //create front-end error messages
       } else {
         this._userService.setCurrentUser(user);
+        // console.log(user.name);
         //redirect to message-board
         this.router.navigateByUrl('dashboard')
       }
