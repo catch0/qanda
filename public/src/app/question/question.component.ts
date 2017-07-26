@@ -20,8 +20,6 @@ export class QuestionComponent implements OnInit {
   ngOnInit() {
     this.setCurrentUser();
     this.getQuestions();
-    this.createQuestion();
-    this.logout();
   }
 
   getQuestions(){

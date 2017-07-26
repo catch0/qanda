@@ -19,15 +19,7 @@ export class NewquestionComponent implements OnInit {
   constructor(private _userService:UserService, private _questionService:QuestionService, private router:Router) { }
 
   ngOnInit() {
-    this.setCurrentUser();
-    this.getQuestions();
-    this.createQuestion();
-  }
-
-  getQuestions(){
-    return this._questionService.getQuestions()
-    .then(questions => this.questions = questions)
-    .catch(err => console.log(err));
+    this.currentUser;
   }
 
   createQuestion(){
@@ -38,7 +30,6 @@ export class NewquestionComponent implements OnInit {
         //display error messages
       } else {
         console.log('new question: ', question);
-        this.getQuestions();
         this.router.navigateByUrl('question');
       }
     })

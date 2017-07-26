@@ -7,8 +7,8 @@ class QuestionsController {
   index(req, res){
           Question.find({})
           .populate({
-              path: 'comments',
-              model: 'Comment',
+              path: 'answers',
+              model: 'Answer',
               populate: {
                   path: 'user',
                   model: 'User'

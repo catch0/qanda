@@ -8,6 +8,7 @@ module.exports = function(app){
     app.post('/users', Users.create);
 
     app.get('/sessions', Users.session);
+    app.post('/sessions', Users.authenticate);
     app.delete('/sessions/:id', Users.logout);
 
     app.get('/questions', Questions.index);
@@ -17,6 +18,6 @@ module.exports = function(app){
     app.post('/answers', Answers.create);
 
     app.all('*', (req, res, next) => {
-        res.sendFile(path.resolve('./public/src/app.html'));
-    })
+      res.sendFile(path.resolve('./public/dist/index.html'));
+  })
 }

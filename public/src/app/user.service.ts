@@ -8,6 +8,7 @@ export class UserService {
   constructor(private _http:Http) { }
 
   create(user){
+    console.log('user in service create: ', user)
     return this._http.post('/users', user).map(data => data.json()).toPromise()
   }
 
