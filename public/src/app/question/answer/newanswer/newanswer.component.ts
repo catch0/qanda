@@ -28,24 +28,28 @@ export class NewAnswerComponent implements OnInit {
     private _router:ActivatedRoute
   ) {this._router.params.subscribe(param=>this.param_id=param.id)}
 
-  createAnswer(){
+  createAnswer(newAnswer){
     this.errors=[];
-    this.newAnswer.user = this.currentUser._id;
-    this.newAnswer.question = this.question._id;
-    return this._answerService.create(this.newAnswer)
-    .then(answer=>){
-      if(answer.errors){
-        for(let key in answer.errors ){
-        let error= answer.errors[key];
-        this.errors.push(error.message);
+      this.newAnswer.user = this.currentUser._id;
+      this.newAnswer.question= this.question._id;
+      return this._answerService.create(this.newAnswer)
+      .then(answer => {
+        if(answer.errors){
+          console.log('awwwwww sheeeeet!!!!!');
+          for(let key in answer.errors){
+            let error = answer.errors[key];
+          this.errors.push(error.answer)
+          }
         }
-      }else{
-        this.router.navigateByUrl(`/question/$(this.question._id)`);
-      }
+        else{
+          console.log('new answer');
+          console.log(answer);
+          // this.getQuestion();
+          this.router.navigateByUrl('dashboard');
+        }
+      })
+      .catch(err => console.log(err));
     }
-    .catch(err=>console.log(err) )
-    this.router.navigateByUrl('dashboard');
-  }
 
   ngOnInit() {
     this.isLoggedIn();
