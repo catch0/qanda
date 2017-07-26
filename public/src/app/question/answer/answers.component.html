@@ -1,3 +1,31 @@
-<p>
-  this is actually the show question component
-</p>
+<div class = "row">
+  <div class = "col">
+
+    <a href [routerLink]="['/dashboard']">Home</a>
+    <a href [routerLink]="['/answer', question._id]">Answer This Question</a>
+    <a href (click)="logout()">Logout</a>
+  </div>
+</div>
+<div>
+  <div>
+    <h1> {{question.question}}</h1>
+    <p>
+      {{question.description}}
+    </p>
+    <div *ngFor="let answer of question.answers">
+      <p>
+        {{answer.user.name}}
+      </p>
+      <p>
+        <strong>{{answer.answer}}</strong>
+      </p>
+      <p>
+        {{answer.details}}
+      </p>
+      <p>
+        Likes {{answer.likes}}
+        <button (click)="increaseLikes(answer._id)">Like</button>
+      </p>
+    </div>
+  </div>
+</div>

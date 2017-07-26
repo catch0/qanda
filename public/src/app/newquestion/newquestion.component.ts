@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import{ UserService} from '../user.service';
 import {QuestionService} from '../question.service';
 import {Router} from '@angular/router';
+import {AnswerService} from '../answer.service';
 
 @Component({
   selector: 'app-newquestion',
@@ -23,6 +24,7 @@ export class NewquestionComponent implements OnInit {
     // .then(user=>{this.currentUser=user;})
     // .catch(err=>{console.log(err);});
     // console.log(this.currentUser);
+    this.isLoggedIn();
    }
 
   ngOnInit() {

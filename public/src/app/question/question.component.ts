@@ -15,7 +15,11 @@ export class QuestionComponent implements OnInit {
   questions:any[] = [];
   @Input() Question;
 
-  constructor(private _userService:UserService, private _questionService:QuestionService, private router: Router) { }
+  constructor(
+    private _userService:UserService,
+    private _questionService:QuestionService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getCurrentUser();

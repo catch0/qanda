@@ -5,7 +5,7 @@ let Answer = mongoose.model('Answer');
 
 class AnswersController {
     create(req, res){
-        Answer.create(req.body, (err, comment) => {
+        Answer.create(req.body, (err, answer) => {
             Question.findByIdAndUpdate(req.body.question, { $push: { answers: answer._id } }, { new: true }, (err, answer) => {
                 if(err) { return res.json(err) }
                 User.findByIdAndUpdate(req.body.user, { $push: { answers: answer._id } }, { new: true }, (err, user) => {
