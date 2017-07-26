@@ -29,6 +29,12 @@
       <td>
         {{question.question.length}}
       </td>
+      <td>
+        <a [routerLink]="['/question', question._id]">Show</a>
+      </td>
+      <td>
+        <a [routerLink]="['/answer', question_id]"> Answer</a>
+      </td>
     </tr>
   </th>
 </table>

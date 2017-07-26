@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
 import { QuestionService } from '../question.service';
 import {AnswerService} from '../answer.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -15,10 +16,11 @@ export class QuestionComponent implements OnInit {
   question: '';
   @Input() Question;
   user= {name: ''};
-  constructor(private _userService:UserService, private _questionService:QuestionService) { }
+
+  constructor(private _userService:UserService, private _questionService:QuestionService, private router: Router) { }
 
   ngOnInit() {
-    this.setCurrentUser();
+    this.getCurrentUser();
     this.getQuestions();
   }
 
@@ -42,13 +44,19 @@ export class QuestionComponent implements OnInit {
     .catch(err => console.log(err));
   }
 
-  setCurrentUser(){
+  getCurrentUser(){
     this.currentUser = this._userService.getCurrentUser();
   }
 
 logout(){
   this._userService.logout();
-  // this.route.navigatebyUrl('/');
+  this.router.navigateByUrl('/');
+}
+
+isLoggedIn(){
+  if(this._userService.getCurrentUser()==null){
+    this.router.navigateByUrl('/');
+  }
 }
 
 }
