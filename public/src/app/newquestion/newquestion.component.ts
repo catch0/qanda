@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import{ UserService} from '../user.service';
 import {QuestionService} from '../question.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-newquestion',
@@ -15,7 +16,7 @@ export class NewquestionComponent implements OnInit {
  @Input() Quesiton;
  user= {name: ''};
 
-  constructor(private _userService:UserService, private _questionService:QuestionService) { }
+  constructor(private _userService:UserService, private _questionService:QuestionService, private router:Router) { }
 
   ngOnInit() {
     this.setCurrentUser();
@@ -38,6 +39,7 @@ export class NewquestionComponent implements OnInit {
       } else {
         console.log('new question: ', question);
         this.getQuestions();
+        this.router.navigateByUrl('question');
       }
     })
     .catch(err => console.log(err));

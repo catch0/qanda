@@ -8,18 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  newUser = {};
+  newUser = {
+    name:''};
 
   constructor(private _userService:UserService, private router:Router) { }
 
   ngOnInit() {
   }
 
-  createUser(){
+  createUser(newUser){
     return this._userService.create(this.newUser)
     .then(user => {
       if(user.errors){
         //create front-end error messages
+        console.log('ahhh fuck you fucked it up');
       } else {
         this._userService.setCurrentUser(user);
         // console.log(user.name);

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'
+import { RouterModule } from '@angular/router';
 
 //Components
 import { AppComponent } from './app.component';
@@ -26,7 +27,7 @@ import { AnswerService } from './answer.service';
     QuestionComponent,
     AnswerComponent,
     NewAnswerComponent,
-    NewquestionComponent
+    NewquestionComponent,
   ],
   imports: [
     BrowserModule,

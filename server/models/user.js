@@ -5,11 +5,11 @@ let UserSchema = new mongoose.Schema({
     type:String,
     required:[true,'Name cannot be blank!']
   },
-  question:[{
+  questions:[{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Question'
   }],
-  answer:[{type: mongoose.Schema.Types.ObjectId, ref: 'Answer'}]
+  answers:[{type: mongoose.Schema.Types.ObjectId, ref: 'Answer'}]
 }, {timestamps:true})
 
 mongoose.model("User", UserSchema)

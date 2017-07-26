@@ -24,7 +24,7 @@ class QuestionsController {
               if(err){ return res.json(err) }
               User.findByIdAndUpdate(req.body.user, { $push: { questions: question._id } }, { new: true }, (err, user) => {
                   if(err){ return res.json(err) }
-                  return res.json(message);
+                  return res.json(question);
               })
           })
       }
