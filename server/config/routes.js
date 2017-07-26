@@ -8,7 +8,6 @@ module.exports = function(app){
     app.post('/users', Users.create);
 
     app.get('/sessions', Users.session);
-    app.post('/sessions', Users.authenticate);
     app.delete('/sessions/:id', Users.logout);
 
     app.get('/questions', Questions.index);

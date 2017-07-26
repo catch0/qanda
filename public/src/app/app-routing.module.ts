@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {QuestionComponent} from './question/question.component';
 import {NewquestionComponent} from './newquestion/newquestion.component';
+import{AnswerComponent} from './question/answer/answers.component';
+import {NewAnswerComponent} from './question/answer/newanswer/newanswer.component'
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', component: LoginComponent},
     { path: 'dashboard', component: QuestionComponent},
     { path: 'newquestion', component: NewquestionComponent},
+    {path: 'question/:id', component: AnswerComponent},
+    {path: 'answer/:id', component: NewAnswerComponent}
 ];
 
 @NgModule({

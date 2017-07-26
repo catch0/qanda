@@ -1,14 +1,12 @@
 <h2>Whats Up {{currentUser.name}}</h2>
-
 <ul>
-  <li class = "inline">
-    <a href [routerLink]="['/newquestion']">Add A Question</a>
-  </li>
   <li class = "inline">
     <a href (click)="logout()"> Logout</a>
   </li>
+  <li>
+    <a [routerLink]="['/newquestion']">Submit New Question</a>
+  </li>
 </ul>
-
 <table>
   <th>
     <tr>
@@ -22,18 +20,18 @@
         Action
       </td>
     </tr>
-    <tr *ngFor="let question of Questions">
+    <tr *ngFor="let question of questions">
       <td>
         {{question.question}}
       </td>
       <td>
-        {{question.question.length}}
+        {{question.answers.length}}
       </td>
       <td>
-        <a [routerLink]="['/question', question._id]">Show</a>
+        <a [routerLink]="['/question', question._id]" href>Show</a>
       </td>
       <td>
-        <a [routerLink]="['/answer', question_id]"> Answer</a>
+        <a [routerLink]="['/answer', question_id]" href> Answer</a>
       </td>
     </tr>
   </th>

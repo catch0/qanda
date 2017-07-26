@@ -8,10 +8,12 @@ export class QuestionService {
   constructor(private _http:Http) { }
 
   getQuestions(){
+    console.log('is get questions working???');
     return this._http.get('/questions').map(data => data.json()).toPromise()
   }
 
   create(question){
+    console.log('we hit the service');
     return this._http.post('/questions', question).map(data => data.json()).toPromise()
   }
 
