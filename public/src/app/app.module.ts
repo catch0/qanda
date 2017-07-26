@@ -10,11 +10,13 @@ import { LoginComponent } from './login/login.component';
 import { QuestionComponent } from './question/question.component';
 import { AnswerComponent } from './question/answer/answers.component';
 import { NewAnswerComponent } from './question/answer/newanswer/newanswer.component';
+import {NewquestionComponent} from './newquestion/newquestion.component';
 
 //Services
 import { UserService } from './user.service';
 import { QuestionService } from './question.service';
 import { AnswerService } from './answer.service';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { AnswerService } from './answer.service';
     LoginComponent,
     QuestionComponent,
     AnswerComponent,
-    NewAnswerComponent
+    NewAnswerComponent,
+    NewquestionComponent
   ],
   imports: [
     BrowserModule,

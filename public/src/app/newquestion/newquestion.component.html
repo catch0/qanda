@@ -1,0 +1,21 @@
+
+<ul>
+  <li class = "inline">
+    <a href [routerLink]="['/newquestion']">Add A Question</a>
+  </li>
+  <li class = "inline">
+    <a href (click)="logout()"> Logout</a>
+  </li>
+</ul>
+
+<div class="row">
+  <div class="col">
+    <form (submit)="createQuestion()">
+      <div class="form-group">
+        <label>Post a Question</label>
+        <input type="text" class="form-control" name="Question" [(ngModel)]="newQuestion.question">
+      </div>
+      <button type="submit" class="btn btn-default">Post Question</button>
+    </form>
+  </div>
+</div>
