@@ -26,7 +26,6 @@ class AnswersController {
       })
     }
 
-
     increaseLikes(req,res){
       Answer.findByIdAndUpdate(
         req.params.id,
