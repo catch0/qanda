@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AnswerService } from '../../../answer.service';
 import { UserService } from '../../../user.service';
 import {QuestionService} from '../../../question.service';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,10 +43,8 @@ export class NewAnswerComponent implements OnInit {
           }
         }
         else{
-          console.log('new answer');
-          console.log(answer);
           // this.getQuestion();
-          this.router.navigateByUrl('dashboard');
+          this.router.navigateByUrl('/dashboard');
         }
       })
       .catch(err => console.log(err));

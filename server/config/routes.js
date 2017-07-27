@@ -15,6 +15,7 @@ module.exports = function(app){
     app.get('/questions/:id', Questions.show);
 
     app.post('/answers', Answers.create);
+    app.put('/answers', Answers.increaseLikes);
 
     app.all('*', (req, res, next) => {
       res.sendFile(path.resolve('./public/dist/index.html'));

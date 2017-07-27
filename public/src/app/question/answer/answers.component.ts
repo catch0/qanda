@@ -48,9 +48,11 @@ export class AnswerComponent implements OnInit {
   }
 
   increaseLikes(id:string, idx:number){
-    return this._answerService.increaseLikes(id)
+    return this._answerService.increaseLikes(id, idx)
     .then(answer=>this.question.answers[idx].likes++)
-    .catch(err=>console.log(err))
+    .catch(err=>console.log(err));
+    // this.router.navigateByUrl('')
+
   }
 
   isLoggedIn(){

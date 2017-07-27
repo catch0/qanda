@@ -21,4 +21,5 @@ export class QuestionService {
     return this._http.get(`/questions/${id}`).map(data => data.json()).toPromise()
   }
 
+
 }

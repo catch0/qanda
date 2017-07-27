@@ -29,7 +29,9 @@ class QuestionsController {
           })
       }
       show(req, res){
-          Question.findById(req.params.id).populate('user').populate({
+          Question.findById(req.params.id)
+          .populate('user')
+          .populate({
               path: 'answers',
               model: 'Answer',
               populate: {

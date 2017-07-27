@@ -10,7 +10,7 @@ export class AnswerService {
   create(answer){
     return this._http.post('/answers', answer).map(data => data.json()).toPromise()
   }
-  increaseLikes(id:string){
+  increaseLikes(id, idx){
     return this._http.put(`/answers/${id}`, {}).map(data=> data.json()).toPromise();
   }
 }

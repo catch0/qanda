@@ -12,7 +12,7 @@
     <p>
       {{question.description}}
     </p>
-    <div *ngFor="let answer of question.answers">
+    <div *ngFor="let answer of question.answers; let idx = index">
       <p>
         {{answer.user.name}}
       </p>
@@ -23,8 +23,8 @@
         {{answer.details}}
       </p>
       <p>
-        Likes {{answer.likes}}
-        <button (click)="increaseLikes(answer._id)">Like</button>
+        Likes {{answer.likes.length}}
+        <button (click)="increaseLikes(answer._id, idx)">Like</button>
       </p>
     </div>
   </div>
